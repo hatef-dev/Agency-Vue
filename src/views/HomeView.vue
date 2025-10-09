@@ -3,6 +3,7 @@
     <home-page-header> </home-page-header>
     <home-page-about-us></home-page-about-us>
     <home-page-services></home-page-services>
+    <home-page-projects></home-page-projects>
   </div>
   <the-header></the-header>
 </template>
@@ -11,12 +12,14 @@
 import HomePageHeader from '@/components/HomePage/HomePageHeader.vue'
 import HomePageAboutUs from '@/components/HomePage/HomePageAboutUs.vue'
 import HomePageServices from '@/components/HomePage/HomePageServices.vue'
+import HomePageProjects from '@/components/HomePage/HomePageProjects.vue'
 export default {
   name: 'HomeView',
   components: {
     HomePageHeader,
     HomePageAboutUs,
     HomePageServices,
+    HomePageProjects,
   },
 }
 </script>

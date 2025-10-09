@@ -1,7 +1,7 @@
 <template>
   <div class="my-container flex flex-col gap-y-15">
     <!-- About Us Header -->
-    <transition appear @enter="enterAboutUsHeader">
+    <transition-animation>
       <div class="flex flex-col gap-y-2 lg:grid grid-cols-5 items-start">
         <div class="col-span-2 flex items-center gap-x-2">
           <!-- dot -->
@@ -17,9 +17,9 @@
           </p>
         </div>
       </div>
-    </transition>
+    </transition-animation>
     <!-- About Us Content -->
-    <transition appear @enter="enterAboutUsContent">
+    <transition-animation>
       <div class="flex flex-col gap-y-2 lg:grid grid-cols-5">
         <!-- Image -->
         <div class="col-span-2 lg:pr-20">
@@ -48,60 +48,16 @@
           </div>
         </div>
       </div>
-    </transition>
+    </transition-animation>
   </div>
 </template>
 
 <script>
 import TheCountdown from '../Ui/TheCountdown.vue'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+import TransitionAnimation from '../Ui/TransitionAnimation.vue'
 export default {
-  components: { TheCountdown },
+  components: { TheCountdown, TransitionAnimation },
   name: 'HomePageAboutUs',
-  methods: {
-    enterAboutUsHeader(element, done) {
-      gsap.registerPlugin(ScrollTrigger)
-
-      gsap.fromTo(
-        element,
-        {
-          opacity: 0,
-          y: 100,
-        },
-        {
-          scrollTrigger: element,
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: 'sine.out',
-          onComplete: done,
-        },
-      )
-    },
-    enterAboutUsContent(element, done) {
-      gsap.registerPlugin(ScrollTrigger)
-
-      gsap.fromTo(
-        element,
-        {
-          opacity: 0,
-          y: 100,
-        },
-        {
-          scrollTrigger: {
-            trigger: element,
-            start: 'top 80%',
-            once: true,
-          },
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: 'sine.out',
-          onComplete: done,
-        },
-      )
-    },
-  },
 }
 </script>

@@ -1,15 +1,15 @@
 <template>
   <div class="flex flex-col gap-y-4 lg:gap-y-10 my-container">
     <!-- dot -->
-    <transition appear @enter="enterService">
+    <transition-animation>
       <div class="flex items-center justify-center gap-x-2">
         <!-- dot --><span class="w-2 h-2 bg-red-500 rounded-full"></span
         ><span class="text-white">Services</span>
       </div>
-    </transition>
+    </transition-animation>
 
     <div class="flex flex-col">
-      <transition appear @enter="enterService" v-for="service in services" :key="service.id">
+      <transition-animation v-for="service in services" :key="service.id">
         <div
           class="flex px-5 relative lg:px-20 group justify-between items-center w-full overflow-hidden py-2 lg:py-10 lg:gap-x-10 text-white border-b-2 border-white/50"
         >
@@ -28,7 +28,7 @@
             />
           </transition>
         </div>
-      </transition>
+      </transition-animation>
     </div>
   </div>
 </template>
@@ -38,31 +38,11 @@ import { mapState } from 'pinia'
 import useServicesStore from '@/stores/services'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import TransitionAnimation from '../Ui/TransitionAnimation.vue'
 export default {
+  components: { TransitionAnimation },
   name: 'HomePageServices',
   methods: {
-    enterService(el, done) {
-      gsap.registerPlugin(ScrollTrigger)
-
-      gsap.fromTo(
-        el,
-        {
-          opacity: 0,
-          y: 100,
-        },
-        {
-          scrollTrigger: {
-            trigger: el,
-            once: true,
-          },
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: 'sine.out',
-          onComplete: done,
-        },
-      )
-    },
     enterImage(el, done) {
       gsap.registerPlugin(ScrollTrigger)
       gsap.fromTo(

@@ -4,6 +4,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import TheHeader from '@/components/TheHeader.vue'
 import TheButton from './components/Btn/TheButton.vue'
+import TransitionAnimation from './components/Ui/TransitionAnimation.vue'
 import App from './App.vue'
 import router from './router'
 
@@ -12,5 +13,6 @@ app.use(createPinia())
 app.use(router)
 app.component('TheHeader', TheHeader)
 app.component('TheButton', TheButton)
+app.component('TransitionAnimation', TransitionAnimation)
 
 app.mount('#app')
