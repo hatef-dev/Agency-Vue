@@ -14,7 +14,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
         <transition-animation :delay="i * 0.05" v-for="i in [1, 2, 3, 4, 5, 6, 7, 8]" :key="i">
           <div
-            class="h-[192px] flex justify-center items-center bg-[#1e1e1e] text-white rounded-md"
+            class="h-[80px] lg:h-[192px] flex justify-center items-center bg-[#1e1e1e] text-white rounded-md"
           >
             <h3>Client {{ i }}</h3>
           </div>
