@@ -4,7 +4,7 @@ export default defineStore('services', {
   state: () => ({
     services: [
       {
-        title: 'Web Design',
+        title: 'Website Design',
         id: 1,
         image: '/web-design.webp',
       },

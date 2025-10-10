@@ -17,7 +17,9 @@
             class="bg-[#1E1E1E] w-full left-0 -z-10 h-full -bottom-full absolute rounded-t-2xl transition-all duration-500 ease-out group-hover:bottom-0"
           ></div>
           <span class="">00{{ service.id }}</span>
-          <h1 class="text-xl lg:text-[80px]/17 font-semibold uppercase text-center lg:px-10">
+          <h1
+            class="text-xl lg:text-[80px]/17 font-semibold uppercase text-center lg:px-10 lg:w-[540px]"
+          >
             {{ service.title }}
           </h1>
           <transition appear @enter="enterImage">
