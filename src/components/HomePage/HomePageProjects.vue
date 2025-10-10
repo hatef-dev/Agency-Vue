@@ -24,8 +24,11 @@
           <div
             class="absolute flex justify-center items-center w-full h-full opacity-0 group-hover/project:opacity-100 duration-200 ease-in-out left-0 top-0 rounded-2xl"
           >
-            <the-button :path="project.path" :backgroundSecondary="true">
-              <template #label>View Project</template>
+            <the-button
+              :path="{ name: 'project', params: { id: project.path } }"
+              :backgroundSecondary="true"
+            >
+              <template #label> View Project </template>
             </the-button>
           </div>
           <div class="absolute w-full top-0 left-0 h-full pointer-events-none z-10 flex">

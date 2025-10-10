@@ -14,6 +14,12 @@ const router = createRouter({
       name: 'about',
       component: () => import('../views/AboutView.vue'),
     },
+    {
+      path: '/projects/:id',
+      name: 'project',
+
+      component: () => import('../views/ProjectView.vue'),
+    },
   ],
   scrollBehavior() {
     return { top: 0 }
