@@ -2,7 +2,7 @@
   <div
     class="bg-[url('background.webp')] bg-cover bg-center bg-no-repeat w-full h-screen lg:h-[90vh] box-border"
   >
-    <div class="my-container mt-5 lg:mt-25 flex flex-col gap-y-10">
+    <div class="mt-5 lg:mt-25 flex flex-col gap-y-10 my-container">
       >
       <!--Image -->
       <transition mode="" appear @appear="enterImage">

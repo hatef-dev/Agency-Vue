@@ -1,5 +1,5 @@
 <template>
-  <div class="my-container flex flex-col gap-y-15">
+  <div class="flex flex-col gap-y-15 my-container">
     <!-- About Us Header -->
     <transition-animation>
       <div class="flex flex-col gap-y-2 lg:grid grid-cols-5 items-start">

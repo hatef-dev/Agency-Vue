@@ -1,11 +1,12 @@
 <template>
+  <the-header></the-header>
   <div class="flex flex-col gap-y-10 lg:gap-y-40">
     <home-page-header> </home-page-header>
+
     <home-page-about-us></home-page-about-us>
     <home-page-services></home-page-services>
     <home-page-projects></home-page-projects>
   </div>
-  <the-header></the-header>
 </template>
 
 <script>
