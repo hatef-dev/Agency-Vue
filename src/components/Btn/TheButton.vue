@@ -8,7 +8,7 @@
       <!-- dots -->
       <span class="flex items-center relative mr-2">
         <span
-          class="w-2 h-2 rounded-full transform transition-transform duration-500 group-hover:scale-[30]"
+          class="w-2 h-2 rounded-full transform transition-transform duration-500 group-hover:scale-[32]"
           :class="{ 'bg-red-500': !backgroundSecondary, 'bg-white': backgroundSecondary }"
         ></span>
         <span
