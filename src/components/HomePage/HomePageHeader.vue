@@ -27,7 +27,7 @@
             </p>
           </transition-animation>
           <transition-animation :delay="1">
-            <the-button :backgroundSecondary="true">
+            <the-button path="/contact" :backgroundSecondary="true">
               <template #label>Book A Call</template>
             </the-button>
           </transition-animation>

@@ -17,7 +17,7 @@
         </div>
 
         <!-- CTA (desktop only) -->
-        <the-button class="hidden lg:block">
+        <the-button path="/contact" class="hidden lg:block">
           <template #label>Contact Us</template>
         </the-button>
 
@@ -45,7 +45,7 @@
         <div class="my-container py-4 h-full relative">
           <TheNavigation :stacked="true" />
           <div class="mt-4">
-            <the-button>
+            <the-button path="/contact">
               <template #label>Contact Us</template>
             </the-button>
           </div>

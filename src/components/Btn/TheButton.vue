@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-link
-      to="/contact"
+      :to="path"
       class="group relative inline-flex items-center overflow-hidden rounded-md p-4 px-6 text-black transition-all duration-300 shadow-sm"
       :class="{ 'bg-white': !backgroundSecondary, 'bg-red-500': backgroundSecondary }"
     >
@@ -55,6 +55,11 @@ export default {
       type: Boolean,
       default: false,
       required: false,
+    },
+    path: {
+      type: String,
+      default: '/',
+      required: true,
     },
   },
 }
