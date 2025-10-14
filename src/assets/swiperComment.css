@@ -4,6 +4,68 @@
 }
 .swiper-wrapper {
   width: 100%;
-
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
   padding: 60px 0;
+}
+.swiper-button-prev-next {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.swiper-button-prev-next .swiper-button-prev,
+.swiper-button-prev-next .swiper-button-next {
+  position: static !important;
+  margin: 0 !important;
+  top: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: auto !important;
+  height: auto !important;
+  color: white;
+  cursor: pointer;
+
+  transition: opacity 0.3s ease;
+  background: none !important;
+
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.swiper-button-prev-next .swiper-button-prev:hover,
+.swiper-button-prev-next .swiper-button-next:hover {
+  opacity: 0.7;
+}
+
+.swiper-button-prev-next .swiper-button-prev::after,
+.swiper-button-prev-next .swiper-button-next::after {
+  display: none !important;
+}
+
+/* Additional styles to prevent text selection and improve button behavior */
+.swiper-button-prev-next {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.swiper-button-prev-next * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  pointer-events: none;
+}
+
+.swiper-button-prev-next .swiper-button-prev,
+.swiper-button-prev-next .swiper-button-next {
+  pointer-events: auto !important;
 }
