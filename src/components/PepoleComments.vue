@@ -19,12 +19,12 @@
       <div class="relative">
         <swiper
           class="border-y border-white/20"
-          :slides-per-view="1.5"
+          :slides-per-view="1"
           :space-between="50"
           :centered-slides="false"
           :loop="true"
           :breakpoints="{
-            640: { slidesPerView: 1.2, spaceBetween: 20 },
+            640: { slidesPerView: 1, spaceBetween: 20 },
             768: { slidesPerView: 1.5, spaceBetween: 30 },
             1024: { slidesPerView: 1.7, spaceBetween: 50 },
           }"
@@ -36,7 +36,7 @@
         >
           <swiper-slide v-for="comment in comments" :key="comment.id">
             <div class="flex flex-col gap-y-10">
-              <p class="text-5xl font-medium">"{{ comment.comment }}"</p>
+              <p class="lg:text-5xl font-medium">"{{ comment.comment }}"</p>
 
               <div class="flex items-center gap-x-4">
                 <img :src="comment.image" class="w-12 h-12 rounded-full" />

@@ -13,9 +13,9 @@
         />
       </transition>
       <!-- Title and description -->
-      <div class="flex flex-col gap-y-4 lg:grid grid-cols-6">
+      <div class="flex flex-col gap-y-4 xl:grid grid-cols-6">
         <transition-animation :delay="0.5">
-          <h1 class="uppercase text-white text-4xl lg:text-8xl font-semibold col-span-5">
+          <h1 class="uppercase text-white lg:text-4xl xl:text-8xl font-semibold col-span-5">
             Digital Agency for Your all Needs
           </h1>
         </transition-animation>

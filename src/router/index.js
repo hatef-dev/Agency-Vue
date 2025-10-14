@@ -17,8 +17,17 @@ const router = createRouter({
     {
       path: '/projects/:id',
       name: 'project',
-
       component: () => import('../views/ProjectView.vue'),
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('../views/ContactView.vue'),
+    },
+    {
+      path: '/case-studies',
+      name: 'case-studies',
+      component: () => import('../views/CaseStudiesView.vue'),
     },
   ],
   scrollBehavior() {

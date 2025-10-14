@@ -31,7 +31,7 @@
           <div class="flex justify-between lg:justify-start lg:flex-col lg:gap-y-10">
             <div class="flex flex-col gap-y-2">
               <div class="flex justify-center items-center">
-                <the-countdown target="1232" duration="1"></the-countdown>
+                <the-countdown :target="1232" :duration="1"></the-countdown>
               </div>
               <div class="flex justify-center items-center">
                 <span class="text-[#fffc] text-xl">Clients Worldwide</span>
@@ -39,7 +39,7 @@
             </div>
             <div class="flex flex-col gap-y-2">
               <div class="flex justify-center items-center">
-                <the-countdown target="13" duration="1"></the-countdown>
+                <the-countdown :target="13" :duration="1"></the-countdown>
               </div>
               <div class="flex justify-center items-center">
                 <span class="text-[#fffc] text-xl">Years Experience</span>

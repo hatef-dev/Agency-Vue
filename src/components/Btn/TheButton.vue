@@ -57,9 +57,9 @@ export default {
       required: false,
     },
     path: {
-      type: String,
+      type: [String, Object],
       default: '/',
-      required: true,
+      required: false,
     },
   },
 }
