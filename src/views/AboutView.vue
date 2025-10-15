@@ -14,6 +14,7 @@
     <div class="flex flex-col gap-y-10 lg:gap-y-35">
       <AboutPageWhoWeAre />
       <AboutPageTeam />
+      <the-footer></the-footer>
     </div>
     <the-header></the-header>
   </div>
@@ -22,12 +23,14 @@
 import AboutPageHeader from '@/components/AboutPage/AboutPageHeader.vue'
 import AboutPageWhoWeAre from '@/components/AboutPage/AboutPageWhoWeAre.vue'
 import AboutPageTeam from '@/components/AboutPage/AboutPageTeam.vue'
+import TheFooter from '@/components/TheFooter.vue'
 export default {
   name: 'AboutView',
   components: {
     AboutPageHeader,
     AboutPageWhoWeAre,
     AboutPageTeam,
+    TheFooter,
   },
 }
 </script>
