@@ -1,5 +1,8 @@
 <template>
-  <header ref="mainHeader" class="py-7 bg-transparent fixed top-0 z-20 w-screen overflow-hidden">
+  <header
+    ref="mainHeader"
+    class="py-7 bg-transparent fixed top-0 left-0 right-0 z-20 w-full overflow-x-hidden"
+  >
     <div class="my-container">
       <div class="flex justify-between items-center text-white relative z-50">
         <div>
@@ -7,7 +10,7 @@
             src="https://cdn.prod.website-files.com/67cd55ad9df25dbc551e8ea4/67ce84ef107013333a321e8f_Footer%20Icon.svg"
             loading="lazy"
             alt="Nav Icon"
-            class="nav-icon"
+            class="nav-icon max-w-full h-auto"
           />
         </div>
 
@@ -40,9 +43,9 @@
     <transition @before-enter="beforeEnter" @enter="enter" @leave="leave">
       <div
         v-if="menuOpen"
-        class="lg:hidden fixed w-screen h-screen border-t z-30 border-white/10 bg-[#191919] text-white overflow-hidden"
+        class="lg:hidden fixed inset-0 top-14 border-t z-30 border-white/10 bg-[#191919] text-white overflow-x-clip overflow-y-auto"
       >
-        <div class="my-container py-4 h-full relative">
+        <div class="my-container py-4 min-h-full relative">
           <TheNavigation :stacked="true" />
           <div class="mt-4">
             <the-button path="/contact">

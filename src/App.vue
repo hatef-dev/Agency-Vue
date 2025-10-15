@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen overflow-x-hidden">
+  <div class="">
     <router-view :key="$route.path" />
   </div>
 </template>

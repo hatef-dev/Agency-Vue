@@ -1,5 +1,5 @@
 <template>
-  <transition @enter="enter" appear>
+  <transition :css="false" @enter="enter" appear>
     <slot></slot>
   </transition>
 </template>
@@ -26,6 +26,10 @@ export default {
       type: Number,
       default: 0,
     },
+    start: {
+      type: String,
+      default: 'top 90%',
+    },
   },
   methods: {
     enter(el, done) {
@@ -40,6 +44,7 @@ export default {
         {
           scrollTrigger: {
             trigger: el,
+            start: this.start,
             once: true,
           },
           delay: this.delay,

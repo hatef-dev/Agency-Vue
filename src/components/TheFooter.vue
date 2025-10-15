@@ -18,58 +18,57 @@
         </div>
       </div>
     </transition-animation>
-    <transition-animation>
-      <div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 justify-between items-center gap-10">
-          <div class="flex flex-col gap-y-12 text-white">
-            <div class="shrink-0">
-              <img
-                src="https://cdn.prod.website-files.com/67cd55ad9df25dbc551e8ea4/67ce84ef107013333a321e8f_Footer%20Icon.svg"
-                loading="lazy"
-                alt="Nav Icon"
-                class="nav-icon max-w-full h-auto"
-              />
-            </div>
-            <div class="">
-              <the-navigation :stacked="false"></the-navigation>
-            </div>
+
+    <div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 justify-between items-center gap-10">
+        <div class="flex flex-col gap-y-12 text-white">
+          <div class="shrink-0">
+            <img
+              src="https://cdn.prod.website-files.com/67cd55ad9df25dbc551e8ea4/67ce84ef107013333a321e8f_Footer%20Icon.svg"
+              loading="lazy"
+              alt="Nav Icon"
+              class="nav-icon max-w-full h-auto"
+            />
           </div>
-          <div class="flex flex-col gap-y-10 text-white">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div class="flex flex-col gap-y-3">
-                <h4>Phone:</h4>
-                <span class="text-base sm:text-lg lg:text-xl">+98 999 9999</span>
-              </div>
-              <div class="flex flex-col gap-y-3">
-                <h4>Email:</h4>
-                <span class="text-base sm:text-lg lg:text-xl">info@agency.com</span>
-              </div>
-            </div>
-            <div class="flex flex-col gap-y-3">
-              <h4>Address:</h4>
-              <span class="text-base sm:text-lg lg:text-xl break-words"
-                >123 Main Street, Anytown USA</span
-              >
-            </div>
+          <div class="">
+            <the-navigation :stacked="false"></the-navigation>
           </div>
         </div>
-        <footer
-          class="flex flex-col sm:flex-row sm:justify-between items-center text-white my-4 gap-y-4 text-center sm:text-left"
-        >
-          <span>Copyright © 2023 Agency. All rights reserved.</span>
-          <div class="flex gap-x-4 justify-center sm:justify-start flex-wrap">
-            <a
-              v-for="value in source"
-              :key="value.name"
-              :href="value.url"
-              class="w-12 h-12 p-3.5 hover:bg-red-500 text-white transition-all duration-300 rounded-full border border-white/40 flex justify-center items-center"
-              v-html="value.svg"
-            >
-            </a>
+        <div class="flex flex-col gap-y-10 text-white">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-y-3">
+              <h4>Phone:</h4>
+              <span class="text-base sm:text-lg lg:text-xl">+98 999 9999</span>
+            </div>
+            <div class="flex flex-col gap-y-3">
+              <h4>Email:</h4>
+              <span class="text-base sm:text-lg lg:text-xl">info@agency.com</span>
+            </div>
           </div>
-        </footer>
+          <div class="flex flex-col gap-y-3">
+            <h4>Address:</h4>
+            <span class="text-base sm:text-lg lg:text-xl break-words"
+              >123 Main Street, Anytown USA</span
+            >
+          </div>
+        </div>
       </div>
-    </transition-animation>
+      <footer
+        class="flex flex-col sm:flex-row sm:justify-between items-center text-white my-4 gap-y-4 text-center sm:text-left"
+      >
+        <span>Copyright © 2023 Agency. All rights reserved.</span>
+        <div class="flex gap-x-4 justify-center sm:justify-start flex-wrap">
+          <a
+            v-for="value in source"
+            :key="value.name"
+            :href="value.url"
+            class="w-12 h-12 p-3.5 hover:bg-red-500 text-white transition-all duration-300 rounded-full border border-white/40 flex justify-center items-center"
+            v-html="value.svg"
+          >
+          </a>
+        </div>
+      </footer>
+    </div>
   </div>
 </template>
 <script>
