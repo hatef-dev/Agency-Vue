@@ -54,12 +54,10 @@
           <div
             class="swiper-button-prev-next shrink-0 border px-8 w-[160px] flex justify-between items-center gap-x-5 py-4 border-white/40"
           >
-            <div
-              class="swiper-button-prev w-10 h-10 flex items-center justify-center cursor-pointer"
-            >
+            <div class="swiper-button-prev w-3 h-3 flex items-center justify-center cursor-pointer">
               <svg
-                width="24"
-                height="24"
+                width="16"
+                height="16"
                 class="-rotate-90"
                 data-name="1-Arrow Up"
                 xmlns="http://www.w3.org/2000/svg"
@@ -72,12 +70,10 @@
               </svg>
             </div>
             <div class="w-[0.5px] h-full bg-white/40"></div>
-            <div
-              class="swiper-button-next w-10 h-10 flex items-center justify-center cursor-pointer"
-            >
+            <div class="swiper-button-next w-3 h-3 flex items-center justify-center cursor-pointer">
               <svg
-                width="24"
-                height="24"
+                width="16"
+                height="16"
                 class="rotate-90"
                 data-name="1-Arrow Up"
                 xmlns="http://www.w3.org/2000/svg"

@@ -35,7 +35,7 @@
               <template #label> View Project </template>
             </the-button>
           </div>
-          <div class="absolute w-full top-0 left-10 lg:left-0 h-full pointer-events-none z-10 flex">
+          <div class="absolute w-full top-0 left-0 h-full pointer-events-none z-10 flex">
             <div class="self-end w-full px-6 flex flex-col gap-y-6 mb-6">
               <h3 class="text-white text-2xl lg:text-5xl">
                 {{ project.title }}

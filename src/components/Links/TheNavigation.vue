@@ -1,11 +1,15 @@
 <template>
-  <nav>
-    <ul :class="stacked ? 'flex flex-col items-start gap-4' : 'flex items-center gap-8'">
+  <nav class="">
+    <ul
+      :class="
+        stacked ? 'flex flex-col items-start gap-4' : 'flex flex-wrap items-center gap-4 sm:gap-8'
+      "
+    >
       <router-link
         v-for="link in links"
         :to="link.path"
         :key="link.path"
-        class="flex items-center gap-4 group font-light"
+        class="flex items-center gap-4 group font-light whitespace-nowrap"
       >
         <span
           class="w-1.5 h-1.5 bg-white rounded-full group-hover:bg-red-500 group-hover:scale-200 transition-all duration-300"

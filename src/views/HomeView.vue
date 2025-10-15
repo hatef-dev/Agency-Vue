@@ -7,6 +7,7 @@
     <home-page-projects></home-page-projects>
     <home-page-clients></home-page-clients>
     <pepole-comments></pepole-comments>
+    <the-footer></the-footer>
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import HomePageServices from '@/components/HomePage/HomePageServices.vue'
 import HomePageProjects from '@/components/HomePage/HomePageProjects.vue'
 import HomePageClients from '@/components/HomePage/HomePageClients.vue'
 import PepoleComments from '@/components/PepoleComments.vue'
+import TheFooter from '@/components/TheFooter.vue'
 export default {
   name: 'HomeView',
   components: {
@@ -26,6 +28,7 @@ export default {
     HomePageProjects,
     HomePageClients,
     PepoleComments,
+    TheFooter,
   },
 }
 </script>

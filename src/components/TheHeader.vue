@@ -1,5 +1,5 @@
 <template>
-  <header ref="mainHeader" class="py-7 bg-transparent fixed top-0 z-20 w-full">
+  <header ref="mainHeader" class="py-7 bg-transparent fixed top-0 z-20 w-screen overflow-hidden">
     <div class="my-container">
       <div class="flex justify-between items-center text-white relative z-50">
         <div>
