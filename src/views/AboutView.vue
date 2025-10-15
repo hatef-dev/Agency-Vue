@@ -1,7 +1,7 @@
 <template>
   <div class="mt-40 lg:mt-56">
     <about-page-header></about-page-header>
-    <div class="my-container my-32 flex flex-col gap-y-36 justify-center items-center">
+    <div class="my-container my-32 flex flex-col gap-y-10 lg:gap-y-36 justify-center items-center">
       <transition-animation>
         <img src="/AboutPageImage.webp" alt="" class="w-full h-auto rounded-2xl" />
       </transition-animation>
@@ -11,18 +11,23 @@
         presence and transform their digital landscape
       </p>
     </div>
-    <AboutPageWhoWeAre />
+    <div class="flex flex-col gap-y-10 lg:gap-y-35">
+      <AboutPageWhoWeAre />
+      <AboutPageTeam />
+    </div>
     <the-header></the-header>
   </div>
 </template>
 <script>
 import AboutPageHeader from '@/components/AboutPage/AboutPageHeader.vue'
 import AboutPageWhoWeAre from '@/components/AboutPage/AboutPageWhoWeAre.vue'
+import AboutPageTeam from '@/components/AboutPage/AboutPageTeam.vue'
 export default {
   name: 'AboutView',
   components: {
     AboutPageHeader,
     AboutPageWhoWeAre,
+    AboutPageTeam,
   },
 }
 </script>
