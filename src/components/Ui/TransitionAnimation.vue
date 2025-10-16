@@ -28,7 +28,7 @@ export default {
     },
     start: {
       type: String,
-      default: 'top 90%',
+      default: 'top 80%',
     },
   },
   methods: {
@@ -45,7 +45,9 @@ export default {
           scrollTrigger: {
             trigger: el,
             start: this.start,
-            once: true,
+            // scrub: 1,
+            toggleActions: 'restart play none reverse',
+            // once: true,
           },
           delay: this.delay,
           opacity: 1,

@@ -9,12 +9,7 @@
         transparency.
       </p>
       <div class="grid lg:grid-cols-4 gap-y-6 lg:gap-4 grid-cols-1">
-        <transition-animation
-          start="top 60%"
-          :delay="person.id * 0.5"
-          v-for="person in Team"
-          :key="person.id"
-        >
+        <transition-animation :delay="person.id * 0.5" v-for="person in Team" :key="person.id">
           <div class="flex flex-col gap-y-2">
             <img
               :src="person.image"

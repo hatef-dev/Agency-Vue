@@ -1,11 +1,11 @@
 <template>
   <div class="my-container">
     <div class="grid grid-cols-1 text-white lg:grid-cols-2 gap-8">
-      <transition-animation start="top 40%">
+      <transition-animation>
         <img src="/whoWeAre.webp" alt="" class="w-full h-full rounded-2xl" />
       </transition-animation>
       <div class="flex flex-col gap-y-10">
-        <transition-animation start="top 60%" :delay="0.25">
+        <transition-animation :delay="0.25">
           <div class="flex flex-col gap-y-4">
             <h1 class="text-white uppercase text-4xl lg:text-7xl font-semibold">Who We Are</h1>
             <p class="text-white/60 text-lg">
@@ -15,7 +15,7 @@
             </p>
           </div>
         </transition-animation>
-        <transition-animation start="top 60%" :delay="0.5">
+        <transition-animation :delay="0.5">
           <div class="flex flex-col gap-y-4 py-10 border-b border-white/20">
             <h1 class="text-white uppercase text-2xl lg:text-4xl font-semibold">Our Mission</h1>
             <p class="text-white/60 text-lg">
@@ -25,7 +25,7 @@
             </p>
           </div>
         </transition-animation>
-        <transition-animation start="top 60%" :delay="0.75">
+        <transition-animation :delay="0.75">
           <div class="flex flex-col gap-y-4 py-2">
             <h1 class="text-white uppercase text-2xl lg:text-4xl font-semibold">Our Values</h1>
             <p class="text-white/60 text-lg">
