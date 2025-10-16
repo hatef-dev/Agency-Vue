@@ -1,15 +1,21 @@
 <template>
   <div class="my-container">
     <div class="flex justify-center items-center">
-      <h1 class="uppercase text-white font-semibold text-8xl w-6xl text-center">
+      <h1
+        class="uppercase text-white font-semibold w-full text-2xl lg:text-8xl lg:w-6xl text-center"
+      >
         Connect with Our Experts Today
       </h1>
     </div>
-    <div class="bg-[#0C0C0C] border border-white/10 rounded-2xl w-full p-16 flex gap-x-10 mt-16">
-      <img src="/Contact.webp" alt="" class="col-span-1 w-[456px] h-auto rounded-md" />
+    <div
+      class="bg-[#0C0C0C] border border-white/10 rounded-2xl justify-center items-center w-full p-5 lg:p-16 flex gap-x-10 mt-16"
+    >
+      <img src="/Contact.webp" alt="" class="hidden lg:bloc w-[456px] h-auto rounded-md" />
       <div class="w-full">
         <form class="flex flex-col gap-y-5">
-          <div class="grid grid-cols-2 gap-x-10 justify-between w-full">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-x-2 gap-y-4 lg:gap-x-10 justify-between w-full"
+          >
             <div class="flex flex-col gap-y-2">
               <label for="name" class="text-white text-base">Name</label>
               <input
