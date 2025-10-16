@@ -1,23 +1,97 @@
-# Agency-Vue
+## Agency-Vue
 
-Agency-Vue is a modern, production-ready agency website template built with Vue 3 and Vite. It features a clean, component-driven architecture with reusable UI pieces for common agency sections such as Hero, Services, Portfolio/Case Studies, Testimonials, Team, and Contact. The template is ideal for agencies, freelancers, or studios looking to quickly launch a performant, SEO-friendly site with a straightforward developer experience.
+Modern, production-grade agency website template built with Vue 3 and Vite. It ships with a clean, component-driven architecture, ready-to-use sections (Hero, Services, Projects/Case Studies, Testimonials, Team, Contact), and sensible defaults for performance, SEO, and maintainability. Ideal for agencies, freelancers, and studios who want to launch quickly without sacrificing quality.
 
-## Key Features
+### Highlights
 
-- **Vue 3 + Vite**: Fast dev server, modern build pipeline, and first-class single-file components.
-- **Component-Driven**: Clearly organized, reusable components for sections and UI elements.
-- **Router-Ready**: Preconfigured `vue-router` with example pages (`Home`, `About`, `Case Studies`, `Contact`, etc.).
-- **State via Stores**: Centralized data samples for services, projects, comments, and team members.
-- **Responsive Design**: Mobile-first layout using CSS with utility classes and scoped styles.
-- **Optimized Assets**: Uses WebP and modern image formats located under `public/`.
+- **Component-driven UI** with reusable sections and UI primitives
+- **Fast DX** via Vite (instant HMR) and Vue SFCs
+- **Router-ready** with prebuilt views and example routes
+- **Lean styling** with plain CSS and scoped component styles
+- **Mock data stores** to centralize content samples (swap with API or Pinia)
+- **Optimized assets** under `public/` with modern formats (WebP)
 
-## Tech Stack and Rationale
+---
 
-- **Vue 3 (Composition API)**: Encourages modular, maintainable components with good type integration and reactivity model.
-- **Vite**: Extremely fast HMR, optimized builds, and sensible defaults.
-- **Vue Router**: Client-side routing for multi-page navigation and clean URLs.
-- **ESLint**: Ensures consistent code quality and style during development.
-- **Plain CSS**: Simple, framework-agnostic styling under `src/assets`. You can integrate Tailwind, UnoCSS, or a component library if preferred.
+## Tech Stack
+
+- **Vue 3 (Composition API)**: Modular, maintainable SFCs, solid reactivity model
+- **Vite**: Lightning-fast dev server and optimized builds by default
+- **Vue Router**: Clean URLs and route-based code organization
+- **ESLint**: Consistent code quality and style enforcement
+- **Plain CSS**: Framework-agnostic styling via `src/assets`; easy to adopt Tailwind/UnoCSS later
+
+Why this stack?
+
+- Prioritizes developer ergonomics and performance
+- Keeps the template unopinionated about CSS frameworks while remaining extensible
+- Aligns with modern Vue best practices and straightforward deployment targets
+
+---
+
+## Installation
+
+### Prerequisites
+
+- Node.js 18+ (LTS recommended)
+- npm 9+ (or pnpm/yarn; adapt commands accordingly)
+
+### Setup
+
+```sh
+npm install
+```
+
+### Development
+
+```sh
+npm run dev
+```
+
+Visit the local URL printed in the terminal (typically `http://localhost:5173`).
+
+### Production Build
+
+```sh
+npm run build
+```
+
+The build output is generated under `dist/`. You can preview it locally:
+
+```sh
+npm run preview
+```
+
+### Linting
+
+```sh
+npm run lint
+```
+
+---
+
+## Usage Guide
+
+Common tasks:
+
+- Edit content lists under `src/stores/*.js`
+- Replace images in `public/` and update paths in components where needed
+- Add or remove sections by modifying the relevant view files in `src/views/`
+- Tweak global styles in `src/assets/main.css`
+
+To add a new Home section:
+
+1. Create `src/components/HomePage/HomePageAwards.vue`
+2. Implement the template and styles
+3. Import and add it in `src/views/HomeView.vue`
+
+To add a new route/page:
+
+1. Create `src/views/CareersView.vue`
+2. Register it in `src/router/index.js`
+3. Add a nav link via `src/stores/navigations.js` (rendered by `components/Links/TheNavigation.vue`)
+
+---
 
 ## Project Structure
 
@@ -32,10 +106,10 @@ Agency-Vue is a modern, production-ready agency website template built with Vue 
 │  │  ├─ AboutPage/       # About page-specific sections
 │  │  ├─ Btn/             # Button components (tags, primary buttons)
 │  │  ├─ ContactPage/     # Contact page header/sections
-│  │  ├─ HomePage/        # Home sections (Hero, Services, Projects, Clients, About)
+│  │  ├─ HomePage/        # Home: Hero, Services, Projects, Clients, About
 │  │  ├─ Links/           # Navigation-related components
 │  │  ├─ Ui/              # Generic UI (countdown, transitions)
-│  │  ├─ PepoleComments.vue # Testimonials/comments slider component
+│  │  ├─ PepoleComments.vue # Testimonials/comments slider
 │  │  ├─ TheFooter.vue    # Global footer
 │  │  └─ TheHeader.vue    # Global header (wraps navigation)
 │  ├─ router/
@@ -53,151 +127,133 @@ Agency-Vue is a modern, production-ready agency website template built with Vue 
 │  │  ├─ HomeView.vue     # Landing page
 │  │  └─ ProjectView.vue  # Individual project page
 │  ├─ App.vue             # Root app component, layout shell
-│  └─ main.js             # App entry, mounts Vue, installs router
+│  └─ main.js             # App entry: createApp, install router, mount
 ├─ index.html             # Base HTML template
 ├─ vite.config.js         # Vite configuration
 ├─ eslint.config.js       # ESLint configuration
 ├─ package.json           # Scripts and dependencies
-└─ README.md              # You are here
+└─ README.md              # Project documentation
 ```
 
-## Routes and Pages
+### Directory/Component Roles
 
-- **Home (`/`)**: Aggregates hero/header, services, projects, clients, and about sections.
-- **About (`/about`)**: Team, who-we-are, and mission sections.
-- **Case Studies (`/case-studies`)**: Grid/list of projects with links to details.
-- **Project (`/projects/:id`)**: Detail page for a single project.
-- **Contact (`/contact`)**: Contact hero/intro and call-to-action with form placeholder.
+- **public/**: Static assets available at root paths (e.g., `/favicon.ico`, `/background.webp`).
+- **src/assets/**: Global CSS and shared asset styles; keep base tokens and resets here.
+- **src/components/**: Presentation components. Prefer small, focused SFCs with minimal props.
+- **src/views/**: Route-level containers that compose sections into full pages.
+- **src/router/**: Route map and feature-level code splitting opportunities.
+- **src/stores/**: Centralized, lightweight data sources for the demo; easy to swap for API/Pinia.
+- **App.vue**: Shell layout; header/footer composition.
+- **main.js**: App bootstrap.
 
-## Core Components
+---
 
-- **Navigation (`components/Links/TheNavigation.vue`)**: Site-wide nav links; consumed by `TheHeader.vue`.
-- **Header (`components/TheHeader.vue`)**: Global header including navigation and potentially logo.
-- **Footer (`components/TheFooter.vue`)**: Global footer with contact info, links, and legal text.
-- **Hero/Header Sections**:
-  - `HomePage/HomePageHeader.vue`: Landing hero with primary messaging and CTA.
-  - `ContactPage/ContactPageHeader.vue`: Contact page hero/intro section.
-- **Content Sections**:
-  - `HomePage/HomePageServices.vue`: Services overview using data from `stores/services.js`.
-  - `HomePage/HomePageProjects.vue`: Featured projects from `stores/projects.js`.
-  - `HomePage/HomePageClients.vue`: Client logos/testimonials section.
-  - `HomePage/HomePageAboutUs.vue`: Brief about section linking to the About page.
-  - `AboutPage/AboutPageWhoWeAre.vue`: Company overview/mission.
-  - `AboutPage/AboutPageTeam.vue`: Team grid from `stores/Team.js`.
-- **UI/Utilities**:
-  - `Btn/TheButton.vue` and `Btn/TagButton.vue`: Reusable buttons.
-  - `Ui/TheCountdown.vue`: Countdown/metrics UI.
-  - `Ui/TransitionAnimation.vue`: Page/element transition effects.
-  - `PepoleComments.vue`: Testimonials/comments carousel using `stores/comments.js`.
+## Architecture & Design Philosophy
 
-## Design and Architecture Notes
+### Component-Driven, Presentational-First
 
-- **Why Vue 3 + Vite**: Rapid iteration with HMR, clean SFCs (script/setup), and excellent build performance. Vite provides sensible defaults and supports modern JS features and tree-shaking.
-- **State/Data**: Lightweight stores in `src/stores/` centralize mock data and keep components focused on presentation. You can swap these with Pinia/Vuex or a backend API.
-- **Styling**: Global CSS in `assets/main.css` plus component-scoped styles keeps styles close to the components that use them. Utility classes are used where pragmatic. No CSS framework is enforced to keep the template lean.
-- **Images/Assets**: Use `public/` for static assets; prefer modern formats like WebP for performance.
-- **Routing**: Route-driven views compose section-level components; easy to add new routes and pages.
+Components are designed to be presentation-focused with clear inputs and minimal side effects. Data is read from simple stores to keep UI code easy to reason about.
 
-## Getting Started
+### Lightweight State via Stores
 
-### Prerequisites
+This starter centralizes mock data under `src/stores/` to avoid prop-drilling and duplicate constants. For production, replace with:
 
-- Node.js 18+ recommended
-- npm 9+ (or pnpm/yarn, adapt commands accordingly)
+- **Pinia** for reactive stores and devtools support
+- API calls (REST/GraphQL) with proper loading/error states
 
-### Installation
+### Styling Strategy
 
-```sh
-npm install
-```
+Lean CSS using global base styles and component-scoped styles. This keeps bundle size small and avoids lock-in. You can adopt Tailwind/UnoCSS or a component library later if preferred.
 
-### Development
+### Routing & Navigation
 
-```sh
-npm run dev
-```
+Route-level views compose section components. Navigation data comes from `stores/navigations.js` and is rendered by `components/Links/TheNavigation.vue`.
 
-### Production Build
+### Performance Considerations
 
-```sh
-npm run build
-```
+- Modern image formats (`.webp`) in `public/`
+- Vite-optimized builds and tree-shaking
+- Simple DOM structure to keep runtime light
 
-### Linting
+---
 
-```sh
-npm run lint
-```
+## Best Practices & Conventions
 
-## Customization and Extension
+- **Naming**: Descriptive, intention-revealing names for components, props, and variables
+- **Props & Emits**: Keep props minimal; emit events instead of mutating parent state
+- **Separation of Concerns**: Views compose sections; sections remain stateless where possible
+- **Scoped Styles**: Prefer scoped component styles; reserve global CSS for tokens/base
+- **Accessibility**: Provide `alt` text for images; use semantic HTML; ensure focus states
+- **Linting**: Keep code passing ESLint; avoid disabling rules unless justified
+- **Imports**: Prefer absolute or well-structured relative imports; keep import order consistent
 
-### Add a New Section to Home
+---
 
-1. Create a component under `src/components/HomePage/`, e.g. `HomePageAwards.vue`.
-2. Implement the section’s template and styles.
-3. Import and insert it into `src/views/HomeView.vue`.
+## Routes
 
-### Create a New Page
+- **Home (`/`)**: Hero/header, services, projects, clients, about teaser
+- **About (`/about`)**: Team, who-we-are, mission
+- **Case Studies (`/case-studies`)**: Project grid/list with links to details
+- **Project (`/projects/:id`)**: Single project detail page
+- **Contact (`/contact`)**: Contact hero/intro and CTA
 
-1. Add a view under `src/views/`, e.g. `CareersView.vue`.
-2. Define its route in `src/router/index.js`.
-3. Add a navigation link via `src/stores/navigations.js` and use `TheNavigation.vue` to render.
+---
 
-### Add a New Component
+## Possible Use Cases
 
-1. Place the component in a logical folder under `src/components/`.
-2. Keep props minimal and well-named; emit events rather than mutating parent state.
-3. Add styles scoped to the component to avoid global leakage.
+- Agency/Studio marketing websites
+- Freelancer portfolios with case studies
+- Productized service landing pages
+- Starter for custom Vue marketing sites
 
-### Update Data/Content
+---
 
-- Edit `src/stores/*.js` to change services, projects, comments, or team.
-- Replace images in `public/` and update references as needed.
+## Roadmap & Future Improvements
 
-### Switch to a Store Library (Optional)
+- SEO meta management per-route (e.g., integrate `@unhead/vue`)
+- Route-level code splitting and lazy loading of heavy sections
+- Image `srcset/sizes` and responsive variants; optional CDN integration
+- Replace demo stores with Pinia or remote APIs
+- Unit tests (Vitest + Vue Test Utils) and E2E (Playwright)
+- i18n via `vue-i18n`
+- Analytics + consent management
 
-- Replace custom stores with **Pinia** if you need reactivity across components, SSR hydration, or devtools support.
-
-## Performance and SEO Improvements (Ideas)
-
-- **SEO**: Add meta tags per route (title, description, Open Graph). Consider `vue-router` navigation guards to set metadata or integrate a head manager (e.g., `@unhead/vue`).
-- **Lazy Loading**: Code-split route views with dynamic imports in the router. Lazy load heavy components like carousels or sections below the fold.
-- **Image Optimization**: Provide multiple resolutions and use `srcset`, `sizes`, and modern formats (WebP/AVIF). Consider a CDN.
-- **Accessibility**: Audit with Lighthouse; ensure proper landmarks, alt text, focus states, and color contrast.
-- **Testing**: Add unit tests with Vitest and component tests with Vue Test Utils; consider Playwright for E2E.
-- **Analytics/Consent**: Integrate analytics with consent management for privacy compliance.
-- **Internationalization**: Add `vue-i18n` if you need multilingual support.
+---
 
 ## Contributing
 
-Contributions are welcome! To propose a change:
+Contributions are welcome!
 
-1. Fork the repository.
-2. Create a feature branch: `git checkout -b feat/your-feature`.
-3. Run the project locally and add tests if applicable.
-4. Ensure lint passes: `npm run lint`.
-5. Submit a pull request with a clear description and screenshots (if UI changes).
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feat/your-feature`
+3. Run locally; add tests if applicable
+4. Ensure lint passes: `npm run lint`
+5. Open a PR with a clear description and screenshots for UI changes
 
-### Commit Style
+Commit style suggestions:
 
-- Use clear, descriptive commit messages (e.g., `feat(home): add awards section`).
-- Keep PRs focused and small where possible.
+- `feat(home): add awards section`
+- `fix(footer): correct social links aria-labels`
+- `chore(ci): run lint on pull_request`
+
+---
 
 ## License
 
-This project is provided under the MIT License. See the `LICENSE` file if present. If a license file is missing, the project is considered unlicensed; feel free to add `LICENSE` with MIT by default for open-source use.
+MIT License. See `LICENSE` if present. If missing, you may add one with standard MIT text for open-source use.
+
+---
 
 ## Acknowledgments
 
-- Built with Vue 3 and Vite.
-- Inspired by common agency website layouts and best practices.
-- Image assets are placeholders; replace with your own or ensure you have rights to use them.
+- Built with Vue 3 and Vite
+- Inspired by common agency site patterns and best practices
+- Placeholder images in `public/` — replace with your own or ensure usage rights
 
-## Recommended IDE and Browser Setup
+---
 
-- **IDE**: [VS Code](https://code.visualstudio.com/) with [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (disable Vetur).
-- **Browser**: Install Vue.js Devtools for Chrome/Edge/Brave or Firefox. Enable Custom Object Formatter in devtools for improved inspection.
+## Configuration & References
 
-## Configuration
-
-See the [Vite Configuration Reference](https://vite.dev/config/) to customize build and dev server options.
+- Vite configuration reference: `https://vite.dev/config/`
+- Recommended IDE: VS Code with the official Vue extension (disable Vetur)
+- Browser: Vue.js Devtools enabled
