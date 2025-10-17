@@ -9,10 +9,10 @@
         >
           <img :src="project.image" :alt="project.title" class="rounded-2xl" />
           <div
-            class="absolute -z-0 transition-all opacity-0 group-hover/project:opacity-100 duration-500 ease-in-out backdrop-blur-xs brightness-50 w-full h-full left-0 top-0 rounded-2xl"
+            class="absolute -z-0 transition-all opacity-0 group-focus/project:opacity-100 group-hover/project:opacity-100 duration-500 ease-in-out backdrop-blur-xs brightness-50 w-full h-full left-0 top-0 rounded-2xl"
           ></div>
           <div
-            class="absolute flex justify-center items-center w-full h-full opacity-0 group-hover/project:opacity-100 duration-200 ease-in-out left-0 top-0 rounded-2xl"
+            class="absolute flex justify-center items-center w-full h-full opacity-0 group-focus/project:opacity-100 group-hover/project:opacity-100 duration-200 ease-in-out left-0 top-0 rounded-2xl"
           >
             <the-button
               :path="{ name: 'project', params: { id: project.path } }"
