@@ -113,9 +113,13 @@ To add a new route/page:
 │  │  ├─ Btn/             # Button components (tags, primary buttons)
 │  │  ├─ ContactPage/     # Contact page header/sections
 │  │  ├─ HomePage/        # Home: Hero, Services, Projects, Clients, About
+│  │  ├─ ProjectPage/     # Project detail page sections
+│  │  │  ├─ ProjectPageHeader.vue
+│  │  │  └─ ProjectPageMain.vue
 │  │  ├─ Links/           # Navigation-related components
 │  │  ├─ Ui/              # Generic UI (countdown, transitions)
 │  │  ├─ PepoleComments.vue # Testimonials/comments slider
+│  │  ├─ TheProjects.vue  # Projects grid/list section
 │  │  ├─ TheFooter.vue    # Global footer
 │  │  └─ TheHeader.vue    # Global header (wraps navigation)
 │  ├─ router/
@@ -146,6 +150,7 @@ To add a new route/page:
 - **public/**: Static assets available at root paths (e.g., `/favicon.ico`, `/background.webp`).
 - **src/assets/**: Global CSS and shared asset styles; keep base tokens and resets here.
 - **src/components/**: Presentation components. Prefer small, focused SFCs with minimal props.
+- **src/components/ProjectPage/**: Components composing the single project detail view (header, details, media).
 - **src/views/**: Route-level containers that compose sections into full pages.
 - **src/router/**: Route map and feature-level code splitting opportunities.
 - **src/stores/**: Centralized, lightweight data sources for the demo; easy to swap for API/Pinia.
