@@ -7,7 +7,7 @@ Modern, production-grade agency website template built with Vue 3 and Vite. It s
 - **Component-driven UI** with reusable sections and UI primitives
 - **Fast DX** via Vite (instant HMR) and Vue SFCs
 - **Router-ready** with prebuilt views and example routes
-- **Lean styling** with plain CSS and scoped component styles
+- **Utility-first styling** with Tailwind CSS 4 via `@tailwindcss/vite`
 - **Mock data stores** to centralize content samples (swap with API or Pinia)
 - **Optimized assets** under `public/` with modern formats (WebP)
 
@@ -19,12 +19,12 @@ Modern, production-grade agency website template built with Vue 3 and Vite. It s
 - **Vite**: Lightning-fast dev server and optimized builds by default
 - **Vue Router**: Clean URLs and route-based code organization
 - **ESLint**: Consistent code quality and style enforcement
-- **Plain CSS**: Framework-agnostic styling via `src/assets`; easy to adopt Tailwind/UnoCSS later
+- **Tailwind CSS 4**: Utility-first CSS with Vite integration via `@tailwindcss/vite`
 
 Why this stack?
 
 - Prioritizes developer ergonomics and performance
-- Keeps the template unopinionated about CSS frameworks while remaining extensible
+- Encourages consistent, responsive design with a minimal CSS footprint
 - Aligns with modern Vue best practices and straightforward deployment targets
 
 ---
@@ -33,7 +33,7 @@ Why this stack?
 
 ### Prerequisites
 
-- Node.js 18+ (LTS recommended)
+- Node.js 20+ (LTS recommended)
 - npm 9+ (or pnpm/yarn; adapt commands accordingly)
 
 ### Setup
@@ -66,6 +66,12 @@ npm run preview
 
 ```sh
 npm run lint
+```
+
+### Formatting
+
+```sh
+npm run format
 ```
 
 ---
@@ -163,7 +169,7 @@ This starter centralizes mock data under `src/stores/` to avoid prop-drilling an
 
 ### Styling Strategy
 
-Lean CSS using global base styles and component-scoped styles. This keeps bundle size small and avoids lock-in. You can adopt Tailwind/UnoCSS or a component library later if preferred.
+Tailwind CSS 4 for utility-first styling, with small, scoped component styles as needed. Global base styles live in `src/assets/main.css` (e.g., CSS variables, resets). Utilities handle most layout/spacing/typography, minimizing custom CSS.
 
 ### Routing & Navigation
 
@@ -174,6 +180,7 @@ Route-level views compose section components. Navigation data comes from `stores
 - Modern image formats (`.webp`) in `public/`
 - Vite-optimized builds and tree-shaking
 - Simple DOM structure to keep runtime light
+- Responsive utilities (e.g., `sm:`, `md:`, `lg:`) to avoid heavy CSS overrides
 
 ---
 
@@ -187,6 +194,12 @@ Route-level views compose section components. Navigation data comes from `stores
 - **Linting**: Keep code passing ESLint; avoid disabling rules unless justified
 - **Imports**: Prefer absolute or well-structured relative imports; keep import order consistent
 
+#### Responsive Conventions
+
+- Prefer Tailwind breakpoints (`sm`, `md`, `lg`) for stacking and spacing changes
+- Use `flex-wrap` for tag lists/pills that may overflow on small screens
+- Constrain media with responsive heights (e.g., `h-56 sm:h-80 md:h-[500px]`)
+
 ---
 
 ## Routes
@@ -196,6 +209,18 @@ Route-level views compose section components. Navigation data comes from `stores
 - **Case Studies (`/case-studies`)**: Project grid/list with links to details
 - **Project (`/projects/:id`)**: Single project detail page
 - **Contact (`/contact`)**: Contact hero/intro and CTA
+
+---
+
+## Recent Changes
+
+- Made `src/components/ProjectPage/ProjectPageHeader.vue` fully responsive:
+  - Title scales across breakpoints (`text-3xl md:text-5xl lg:text-8xl`)
+  - Header layout stacks on small screens (`flex-col sm:flex-row`) with wrapping tags
+  - CTA button becomes full-width on mobile (`w-full sm:w-auto`)
+  - Image gets responsive height and proper `alt` binding
+
+If you follow similar utility patterns, other sections will adapt cleanly to different screen sizes.
 
 ---
 
