@@ -15,24 +15,24 @@
       >
         <img src="/Contact.webp" alt="" class="hidden lg:block w-[456px] h-auto rounded-md" />
         <div class="w-full">
-          <vee-form
-            @submit.prevent="submit"
-            :validation-schema="schema"
-            class="flex flex-col gap-y-5"
-          >
+          <vee-form @submit="register" :validation-schema="schema" class="flex flex-col gap-y-5">
             <div
               class="grid grid-cols-1 lg:grid-cols-2 gap-x-2 gap-y-4 lg:gap-x-10 justify-between w-full"
             >
               <div class="flex flex-col gap-y-2">
                 <label for="name" class="text-white text-base">Name</label>
-                <vee-field
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Name"
-                  class="w-full placeholder:text-white/40 py-4 px-4 bg-[#1D1C1D] rounded-md p-2 text-white border-0 focus:outline-0 focus:border-none"
-                />
-                <vee-error-message name="name" class="text-red-500" />
+                <vee-field name="name" v-slot="{ field, errors }">
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="Name"
+                    class="w-full placeholder:text-white/40 py-4 px-4 bg-[#1D1C1D] rounded-md p-2 text-white border-0 focus:outline-0 focus:border-none"
+                    v-bind="field"
+                  />
+                  <div class="text-red-500" v-for="error in errors" :key="error">
+                    {{ error }}
+                  </div>
+                </vee-field>
               </div>
               <div class="flex flex-col gap-y-2">
                 <label for="Number" class="text-white text-base">Number</label>
@@ -73,9 +73,7 @@
                 class="w-full resize-none placeholder:text-white/40 py-4 px-4 bg-[#1D1C1D] rounded-md p-2 text-white border-0 focus:outline-0 focus:border-none"
               />
             </div>
-            <button type="submit" class="shrink-0">
-              <the-button :backgroundSecondary="true"></the-button>
-            </button>
+            <the-button :backgroundSecondary="true"></the-button>
           </vee-form>
         </div>
       </div>
@@ -96,9 +94,8 @@ export default {
     }
   },
   methods: {
-    submit(e) {
-      console.log(this.schema)
-      e.preventDefault()
+    register(value) {
+      console.log(value)
     },
   },
 }

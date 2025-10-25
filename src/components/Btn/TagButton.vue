@@ -1,10 +1,11 @@
 <template>
-  <div
+  <button
+    :type="type"
     class="rounded-full text-[12.5px] xl:text-lg font-medium px-3 lg:px-6 py-2 flex justify-center items-center"
     :class="[backgroundSecondary ? 'bg-[#1F1F1F] text-white' : 'bg-white text-black']"
   >
     <slot></slot>
-  </div>
+  </button>
 </template>
 <script>
 export default {
@@ -14,6 +15,11 @@ export default {
       type: Boolean,
       default: false,
       requride: false,
+    },
+    type: {
+      type: String,
+      default: 'button',
+      required: false,
     },
   },
 }
