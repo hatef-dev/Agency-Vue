@@ -20,6 +20,7 @@ Modern, production-grade agency website template built with Vue 3 and Vite. It s
 - **Vue Router**: Clean URLs and route-based code organization
 - **ESLint**: Consistent code quality and style enforcement
 - **Tailwind CSS 4**: Utility-first CSS with Vite integration via `@tailwindcss/vite`
+- **VeeValidate 4**: Form validation via plugin, custom rule registration, and global form components
 
 Why this stack?
 
@@ -35,12 +36,17 @@ Why this stack?
 
 - Node.js 20+ (LTS recommended)
 - npm 9+ (or pnpm/yarn; adapt commands accordingly)
+- VeeValidate 4+ and @vee-validate/rules
 
 ### Setup
 
 ```sh
 npm install
 ```
+
+# If not installed:
+
+npm install vee-validate @vee-validate/rules
 
 ### Development
 
@@ -96,6 +102,11 @@ To add a new route/page:
 1. Create `src/views/CareersView.vue`
 2. Register it in `src/router/index.js`
 3. Add a nav link via `src/stores/navigations.js` (rendered by `components/Links/TheNavigation.vue`)
+
+- Use global `<vee-form>`, `<vee-field>`, and `<vee-error-message>` components for powerful form validation
+  - See `src/include/validation.js` for rule registration
+  - To use: wrap your forms in `<vee-form>`, fields in `<vee-field>`, display errors with `<vee-error-message>`
+- The validation plugin is set up in `src/main.js` (see `import validation` then `app.use(validation)`)
 
 ---
 

@@ -15,46 +15,54 @@
       >
         <img src="/Contact.webp" alt="" class="hidden lg:block w-[456px] h-auto rounded-md" />
         <div class="w-full">
-          <form class="flex flex-col gap-y-5">
+          <vee-form
+            @submit.prevent="submit"
+            :validation-schema="schema"
+            class="flex flex-col gap-y-5"
+          >
             <div
               class="grid grid-cols-1 lg:grid-cols-2 gap-x-2 gap-y-4 lg:gap-x-10 justify-between w-full"
             >
               <div class="flex flex-col gap-y-2">
                 <label for="name" class="text-white text-base">Name</label>
-                <input
+                <vee-field
                   type="text"
                   name="name"
                   id="name"
                   placeholder="Name"
                   class="w-full placeholder:text-white/40 py-4 px-4 bg-[#1D1C1D] rounded-md p-2 text-white border-0 focus:outline-0 focus:border-none"
                 />
+                <vee-error-message name="name" class="text-red-500" />
               </div>
               <div class="flex flex-col gap-y-2">
                 <label for="Number" class="text-white text-base">Number</label>
-                <input
-                  type="text"
+                <vee-field
+                  type="number"
                   name="Number"
                   id="Number"
                   placeholder="Number"
                   class="w-full placeholder:text-white/40 py-4 px-4 bg-[#1D1C1D] rounded-md p-2 text-white border-0 focus:outline-0 focus:border-none"
                 />
+                <vee-error-message name="Number" class="text-red-500" />
               </div>
             </div>
 
             <div class="flex flex-col gap-y-2">
-              <label for="Email" class="text-white text-base">Email</label>
-              <input
+              <label for="email" class="text-white text-base">Email</label>
+              <vee-field
                 type="Email"
-                name="Email"
-                id="Email"
+                name="email"
+                id="email"
                 required
                 placeholder="Email"
                 class="w-full placeholder:text-white/40 py-4 px-4 bg-[#1D1C1D] rounded-md p-2 text-white border-0 focus:outline-0 focus:border-none"
               />
+              <vee-error-message name="email" class="text-red-500" />
             </div>
             <div class="flex flex-col gap-y-2">
               <label for="Message" class="text-white text-base">Message</label>
-              <textarea
+              <vee-field
+                as="textarea"
                 type="Message"
                 name="Message"
                 id="Message"
@@ -65,10 +73,33 @@
                 class="w-full resize-none placeholder:text-white/40 py-4 px-4 bg-[#1D1C1D] rounded-md p-2 text-white border-0 focus:outline-0 focus:border-none"
               />
             </div>
-            <the-button :backgroundSecondary="true"></the-button>
-          </form>
+            <button type="submit" class="shrink-0">
+              <the-button :backgroundSecondary="true"></the-button>
+            </button>
+          </vee-form>
         </div>
       </div>
     </transition-animation>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'ContactPageHeader',
+  data() {
+    return {
+      schema: {
+        name: 'required|min:3|max:30|alpha_spaces',
+        Number: 'required|numeric',
+        email: 'required|email|min:3|max:30',
+      },
+    }
+  },
+  methods: {
+    submit(e) {
+      console.log(this.schema)
+      e.preventDefault()
+    },
+  },
+}
+</script>
